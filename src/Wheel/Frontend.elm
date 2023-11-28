@@ -43,3 +43,12 @@ updateFromBackend msg model =
         _ ->
             (model, Cmd.none)
 
+
+
+view : Model -> Html Msg
+view model =
+    div []
+        [ button [ onClick UserClickedSpinWheelButton ] [ text "Spin Wheel" ]
+        , button [ onClick UserClickedRemoveWheelItemButton ] [ text "Remove Wheel Item" ]
+        ]
+
