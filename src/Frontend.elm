@@ -7,10 +7,12 @@ import Html.Attributes as Attr
 import Lamdera
 import Types exposing (..)
 import Url
+import Html.Attributes exposing (class)
 
 
 type alias Model =
     FrontendModel
+
 
 
 app =
@@ -62,12 +64,11 @@ updateFromBackend msg model =
         NoOpToFrontend ->
             ( model, Cmd.none )
 
-
 view : Model -> Browser.Document FrontendMsg
 view model =
     { title = ""
     , body =
-        [ Html.div [ Attr.style "text-align" "center", Attr.style "padding-top" "40px" ]
+        [ Html.div [ class "w-full h-full", Attr.style "text-align" "center", Attr.style "padding-top" "40px" ]
             [ Html.img [ Attr.src "https://lamdera.app/lamdera-logo-black.png", Attr.width 150 ] []
             , Html.div
                 [ Attr.style "font-family" "sans-serif"
