@@ -1,4 +1,4 @@
-module Wheel exposing (..)
+module Shared.Wheel exposing (..)
 
 type Event
     = UserCreatedWheel String String

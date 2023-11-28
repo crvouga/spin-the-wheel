@@ -1,4 +1,4 @@
-module WheelSession exposing (..)
+module Shared.WheelSession exposing (..)
 
 type Event
     = UserStarted String
@@ -19,6 +19,24 @@ type State = {
     wheelId: String
     userIds: Set String
 }
+
+handler: State -> Command -> Result String (List Event)
+handler state command =
+    case command of
+        Start userId ->
+            Ok [ UserStarted userId ]
+
+        Join userId wheelId ->
+            Ok [ UserJoined userId ]
+
+        Leave userId wheelId ->
+            Ok [ UserLeft userId ]
+
+        ChangeWheel userId wheelId ->
+            Ok [ UserChangedWheel userId wheelId ]
+
+        SpinWheel userId wheelId ->
+            Ok [ UserSpunWheel userId wheelId ]
 
 reducer : WheelSessionState -> WheelSessionEvent -> WheelSessionState
 reducer state event =

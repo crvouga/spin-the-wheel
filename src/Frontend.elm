@@ -64,6 +64,7 @@ updateFromBackend msg model =
         NoOpToFrontend ->
             ( model, Cmd.none )
 
+
 view : Model -> Browser.Document FrontendMsg
 view model =
     { title = ""
